@@ -1,5 +1,3 @@
-require "pry"
-
 class PrimeChecker
   def check(number)
     # 偶数は２以外素数ではないので除外する
@@ -17,11 +15,19 @@ class PrimeChecker
     # list_maxは比較要素listの最大値（調べる値の平方根）
     list_max = number ** 0.5
     # 奇数の配列を作成する（最大値はlist_max）
-    list = i.step(list_max, 2).to_a
-    # jはprime_listのindex
-    j = index + 1
+    list = []
+    # iがlist_maxよりも小さい間繰り返す
+    while i < list_max
+      # listにiの値を格納
+      list.push(i)
+      # iを2増やす
+      i += 2
+    end
+
     # indexが要素数より少ない間繰り返す
     while index < list.size
+      # jはlistのindex
+      j = index + 1
       # jが要素数より少ない間繰り返す
       while j < list.size
         # もしlist[j]がlist[index]が割り切れた場合
@@ -35,6 +41,7 @@ class PrimeChecker
       # indexを1増やす
       index += 1
     end
+    
     # indexの値が要素数より少ない間繰り返す
     while index < list.size
       # numberがiで割り切れた時、falseを返す
@@ -43,6 +50,6 @@ class PrimeChecker
       index += 1
     end
     # trueを返す
-    return true
+    true
   end
 end
