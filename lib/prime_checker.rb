@@ -10,8 +10,6 @@ class PrimeChecker
 
     # 偶数は排除しているので、奇数の場合のみを考える
     i = 3
-    # indexに0を代入
-    index = 0
     # list_maxは比較要素listの最大値（調べる値の平方根）
     list_max = number ** 0.5
     # 奇数の配列を作成する（最大値はlist_max）
@@ -23,7 +21,9 @@ class PrimeChecker
       # iを2増やす
       i += 2
     end
-
+    
+    # indexに0を代入
+    index = 0
     # indexが要素数より少ない間繰り返す
     while index < list.size
       # jはlistのindex
